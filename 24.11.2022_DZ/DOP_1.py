@@ -11,3 +11,23 @@
 # - 3 этап: 264 -> 2+6+4 -> 12 -> 1+2 -> 3
 # - 3 этап: [3, 1, 5, 5, 3, 5, 4]
 # - 4 этап: [3, 1, 5, 4]
+print("\033[H\033[J")
+
+# Первый этап - генерим
+import random
+n = 10
+list = []
+for i in range(n):
+    list.append(str(random.randint(1000,9999)))
+print(list)
+
+# Второй этап - вводим цифру и убираем ее из элементов списка
+zahl = input('Введите число от 0 до 9, которое надо исключить: ')
+# if zahl not in range(0,9):
+#     print(f'Вы ввели некорректное число!')
+
+for item in list:
+    for char in item:
+        if char == zahl:
+            print(f'Цифра {zahl} есть в значении {char}')
+print(list)
