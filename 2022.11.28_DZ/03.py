@@ -15,16 +15,8 @@ print(f'Список из {n} чисел: {list}')
 list1 = []
 for i in range(len(list)):
     if float.is_integer(list[i]) == False:
-        list1.append(str(list[i]))
-print(f'Список без целых чисел: {list1}')
+        list1.append(round(list[i]-int(list[i]), 5))
+print(f'Список без целых чисел и только частей после запятой: {list1}')
 
-# list2 = []
-for item in list1:
-    k = 0
-    for char in item:
-        k += 1
-        if char == '.':
-            print(f'Точка в {item} на позиции {k}')
-            
-#     list2.append(str(list1).split('.'))
-# print(f'Список только дробных частей чисел: {list2}')
+# ДОДЕЛАНО ПОСЛЕ РАЗБОРА ЗАДАЧИ НА СЕМИНАРЕ:
+print(f'Разница между максимальным {max(list1)} и минимальным {min(list1)} значением дробной части элементов равна: {max(list1)-min(list1)}')
