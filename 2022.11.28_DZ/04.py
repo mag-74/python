@@ -3,3 +3,11 @@
 # 45 -> 101101
 # 3 -> 11
 # 2 -> 10
+print("\033[H\033[J")
+
+n = int(input(f'Введите число: '))
+n_bool = ''
+while n > 0:
+    n_bool = str(n % 2) + n_bool
+    n = n // 2
+print(n_bool)
