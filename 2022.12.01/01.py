@@ -3,8 +3,8 @@ print("\033[H\033[J")
 string = input('Введите числа через пробел: ')
 print(string)
 string = string.split(' ')
-print(string)
+# print(string)
 for i in range(len(string)):
     string[i] = int(string[i])
 
-# дописать блоки поиска максимального и минимального числа
+print(f'Максимальное число {max(string)}, минимальное {min(string)}')
