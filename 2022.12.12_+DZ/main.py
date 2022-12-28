@@ -1,7 +1,7 @@
 # Разработать: 1) кнопочный калькулятор, 2) усовершенствовать его до строчного, 3) добавить логгер, 4) добавить скобки
 
-import controller as con
+import controller
 import model
 
 print("\033[H\033[J")
-con.start()
+controller.start()
