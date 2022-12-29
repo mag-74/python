@@ -1,4 +1,5 @@
 from decimal import Decimal
+
 first_number = 0
 second_number = 0
 operation = ''
@@ -59,3 +60,10 @@ def division():
     result = first_number / second_number
     if result == int(result):
         result = int(result)
+
+def get_memory(): #                                                   ++ вкручено готовое
+    global memory
+    return memory
+def set_memory(value: Decimal):
+    global memory
+    memory = value
