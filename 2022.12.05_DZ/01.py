@@ -40,7 +40,7 @@ def comp_move():
     bank = bank - comp_move
     last_turn = 'comp'
     print("\033[H\033[J")
-    print(f'Компьтер забирает {comp_move} шт., всего осталось {bank} шт.')
+    print(f'Компьютер забирает {comp_move} шт., всего осталось {bank} шт.')
 
 if int(random.randint(0,1)) == 0: # Решаем, кто делает первый ход!
     print(f'Вам выпал жребий первым сделать ход!')
