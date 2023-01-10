@@ -27,7 +27,7 @@ async def play_game1(message: types.Message):
             else: 
                 comp_move = bank%29
             if comp_move == 0:
-                comp_move = random.randint(1,28)
+                comp_move = int(random.randint(1,28))
             bank = bank - comp_move
             await bot.send_message(message.from_user.id, text = f'Вы забрали {int(message.text)} шт., а бот - {comp_move}, всего осталось {bank} конфет.')
             if bank == 0:
