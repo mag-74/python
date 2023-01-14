@@ -1,6 +1,7 @@
 from bot_config import dp, bot
 from aiogram import types
 import random, markups as nav
+import emoji
 active_game = 0
 bank = 150
 
@@ -34,7 +35,9 @@ async def start_game1(message: types.Message):
                 if comp_move == 0:
                     comp_move = int(random.randint(1,28))
                 bank = bank - comp_move
-                await bot.send_message(message.from_user.id, text = f'Вы забрали {int(message.text)} шт., а бот - {comp_move}, всего осталось {bank} конфет.')
+                await bot.send_message(message.from_user.id, text = f'Вы забрали {int(message.text)} шт., а бот - {comp_move}')
+                bank_candy = [emoji.emojize(':candy:')] * bank
+                await bot.send_message(message.from_user.id, f'Всего осталось {bank} конфет: {" ".join(str(x) for x in bank_candy)}')
                 if bank == 0:
                     await bot.send_message(message.from_user.id, text = f'Бот забрал конфеты последним. Игра окончена и Вы проиграли!')
                     await bot.send_message(message.from_user.id, f'Поиграй со мной еще!', reply_markup=nav.gameMenu)
