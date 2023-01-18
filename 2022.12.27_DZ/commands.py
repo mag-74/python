@@ -7,7 +7,7 @@ bank = 150
 
 @dp.message_handler(commands=['start'])
 async def start_bot(message: types.Message):
-    await bot.send_message(message.from_user.id, f'Привет, {message.from_user.first_name}!', reply_markup=nav.mainMenu)
+    await bot.send_message(message.from_user.id, f'Привет, {message.from_user.last_name}!', reply_markup=nav.mainMenu)
 
 @dp.message_handler()
 async def start_game1(message: types.Message):
@@ -17,9 +17,13 @@ async def start_game1(message: types.Message):
     elif message.text == 'Назад':
         await bot.send_message(message.from_user.id, f'Ну вот и главное меню!', reply_markup=nav.mainMenu)
     elif message.text == 'Игра в конфеты':
-        await message.reply(f'{message.from_user.first_name}, ок! Сыграем в игру в конфетки! Правила такие: У нас есть 150 конфет! Каждый игрок за один ход может забрать от одной до 28 штук. Выиграет тот, кто сделает последний ход.')
+        await message.reply(f'{message.from_user.last_name}, ок! Сыграем в игру в конфетки! Правила такие: У нас есть 150 конфет! Каждый игрок за один ход может забрать от одной до 28 штук. Выиграет тот, кто сделает последний ход.')
         await bot.send_message(message.from_user.id, f'Ваш ход! Введите число конфет от 1 до 28 штук, которые вы хотите сейчас забрать: ')
         active_game = 1
+    elif message.text == 'Крестики-нолики':
+        await message.reply(f'{message.from_user.last_name}, ок! Сыграем в крестики-нолики! Правила обычные: три в ряд, кто первый - тот победил!')
+        # await bot.send_message(message.from_user.id, f'Ваш ход! Введите число конфет от 1 до 28 штук, которые вы хотите сейчас забрать: ')
+        active_game = 2
     elif active_game == 1:     
         if message.text.isdigit() and int(message.text) > 0 and int(message.text) < 29:
             while bank != 0:
@@ -46,3 +50,5 @@ async def start_game1(message: types.Message):
                 break
         else:
             await bot.send_message(message.from_user.id, f'Что-то не то ввели, давайте еще разок!')
+    # if active_game == 2: 
+    #     pass
