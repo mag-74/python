@@ -16,18 +16,34 @@ print("\033[H\033[J")
 # Первый этап - генерим
 import random
 n = 10
-list = []
-for i in range(n):
-    list.append(str(random.randint(1000,9999)))
-print(list)
-
+zahl = None
+list = [str(random.randint(1000,9999)) for i in range(n)]
+print(f'Исходный массив чисел: {list}')
 # Второй этап - вводим цифру и убираем ее из элементов списка
-zahl = input('Введите число от 0 до 9, которое надо исключить: ')
-# if zahl not in range(0,9):
-#     print(f'Вы ввели некорректное число!')
+while zahl == None:
+    inp = str(input('Введите число от 0 до 9, которое надо исключить: '))
+    try:
+        int(inp)    
+        if int(inp) < 9 and int(inp) > -1:
+            zahl = inp
+    except:
+        print(f'Введено не корректное число!')
+
+# for i in range(len(list)):
+#     for char in list[i]:
+#         if int(char) == zahl:
+#             list[i].replace({zahl}, '')
+#             print(f'Цифра {zahl} есть в значении')
+# print(list)
+list_2 = []*len(list)
 
 for item in list:
     for char in item:
         if char == zahl:
-            print(f'Цифра {zahl} есть в значении {char}')
-print(list)
+            print(f'Символ {zahl} присутствует в строке {item}')
+            v = str(zahl)
+            char = char.replace('3', '')
+        else:
+            list_2.append(item)
+
+print(list_2)
